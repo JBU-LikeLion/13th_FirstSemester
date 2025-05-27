@@ -21,4 +21,4 @@
 
 ### 🔗 Useful Links
 - [멋쟁이사자처럼 공식 홈페이지](https://likelion.university/)
-- [인스타그램](https://www.instagram.com/joongbulikelion/)
+- [JBU 인스타그램](https://www.instagram.com/joongbulikelion/)
