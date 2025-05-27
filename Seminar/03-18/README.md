@@ -8,7 +8,7 @@
 ▶ **[Git & GitHub 강의 – Coding Apple](https://codingapple.com/course/git-and-github/)**
 
 ## 과제 제출 방법
-1. 실습 결과물을 자신의 GitHub 저장소에 정리합니다.  
-   예시: `https://github.com/your-username/git-practice`
-2. 본인의 이름이 적힌 레파지토리 내부에 본인이 실습한 깃허브에서 코드를 다운받습니다.
-3. 압축을 풀고 **'Git-usgae'** 로 파일 이름을 설정한 후, 업로드 합니다.  
+- GitHub에 본인의 피라미드 과제 레포지토리를 생성합니다.
+- 완성된 소스코드를 업로드 후, ZIP 파일로 다운받거나 소스코드를 긁어서 복사 붙여넣기로 올립니다.
+- 압축을 풀고 **'Git-usgae'** 로 파일 이름을 설정한 후, 업로드 합니다.  
+> 로컬과 연동해서 하는 branch는 절대 쓰지 마세요.
