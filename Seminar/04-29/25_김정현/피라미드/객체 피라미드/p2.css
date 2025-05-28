@@ -1,0 +1,21 @@
+.body {
+    width: 100%;    
+}
+
+.nav {
+    background-color: #194125;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    margin: 0%;
+}
+
+.top{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#pi{
+    display: flex;
+    justify-content: center;
+}
