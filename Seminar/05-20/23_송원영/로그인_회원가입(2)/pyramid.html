@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>피라미드 만들기</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h2>🔺 피라미드 만들기</h2>
+      <input type="number" id="heightInput" placeholder="피라미드 높이를 입력하세요" />
+      <button onclick="buildPyramid()">만들기</button>
+      <button onclick="goHome()">🏠 홈으로 가기</button>
+      <div id="pyramidArea" style="margin-top: 20px; font-family: monospace;"></div>
+      
+    </div>
+  </div>
+
+  <script>
+    function buildPyramid() {
+      const height = document.getElementById('heightInput').value;
+      const pyramidArea = document.getElementById('pyramidArea');
+
+      let pyramidHTML = "";
+      for (let i = 1; i <= height; i++) {
+        let row = "";
+        for (let j = 1; j <= i; j++) {
+          row += "*";
+        }
+        pyramidHTML += row + "<br>";
+      }
+
+      pyramidArea.innerHTML = pyramidHTML;
+    }
+
+    function goHome() {
+      window.location.href = "home.html";
+    }
+
+    // 다크모드 유지
+    window.onload = function () {
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    document.body.classList.add("dark");
+  }
+}
+
+  </script>
+</body>
+</html>
