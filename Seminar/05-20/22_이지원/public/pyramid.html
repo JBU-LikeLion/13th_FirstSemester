@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>피라미드</title>
+  </head>
+  <body>
+    <h1>Pyramid</h1>
+    <input type="number" id="height" placeholder="몇 층?" />
+    <button onclick="createPyramid()">출력</button>
+
+    <pre id="pyramid" style="font-family: monospace"></pre>
+
+    <script>
+      class Pyramid {
+        constructor(height) {
+          this.height = height
+        }
+
+        draw() {
+          let output = ''
+
+          for (let i = 1; i <= this.height; i++) {
+            let space = ' '.repeat(this.height - i)
+            let star = '*'.repeat(i * 2 - 1)
+            output += space + star + '\n'
+          }
+
+          return output
+        }
+      }
+
+      function createPyramid() {
+        const height = Number(document.getElementById('height').value)
+        const pyramid = new Pyramid(height)
+        const result = pyramid.draw()
+        document.getElementById('pyramid').innerText = result
+      }
+    </script>
+  </body>
+</html>
