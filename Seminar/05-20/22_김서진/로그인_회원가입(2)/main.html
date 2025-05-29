@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>로그인</title>
+  </head>
+  <body>
+    <div class="title">로그인 성공!</div>
+    <div style="position: absolute; top: 20px; right: 30px; z-index: 10">
+      <button id="theme-toggle" class="theme-btn" title="테마 전환">
+        <img
+          id="theme-icon"
+          src="img/moon.png"
+          alt="테마 전환"
+          style="width: 24px; height: 24px; vertical-align: middle"
+        />
+      </button>
+    </div>
+    <button class="logout-btn" onclick="Pyramid_location()">피라미드</button>
+    <button class="logout-btn" onclick="Logout()">로그아웃</button>
+    <button class="delete" onclick="Delete()">회원탈퇴</button>
+    <script src="main.js"></script>
+  </body>
+</html>
