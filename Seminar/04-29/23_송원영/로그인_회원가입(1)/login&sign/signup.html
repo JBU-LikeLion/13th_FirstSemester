@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>회원가입</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <form id="signupForm">
+    <h2>회원가입</h2>
+    <input type="text" id="signupId" placeholder="아이디" required />
+    <input type="password" id="signupPassword" placeholder="비밀번호" required />
+    <button type="submit">가입하기</button>
+    <p><a href="login.html">이미 계정이 있나요? 로그인</a></p>
+</form>
+
+  <script src="script.js"></script>
+
+<!-- 🔔 커스텀 알림창 -->
+<div id="customAlert" style="display:none;">
+    <div class="alertBox">
+      <p id="alertMessage"></p>
+      <button>확인</button>
+    </div>
+  </div>
+</body>
+</html>

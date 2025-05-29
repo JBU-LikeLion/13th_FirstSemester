@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>로그인</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+      <form id="loginForm">
+        <h2>로그인</h2>
+        <input type="text" id="loginId" placeholder="아이디" required />
+        <input type="password" id="loginPassword" placeholder="비밀번호" required />
+        <button type="submit">로그인</button>
+        <p><a href="signup.html">계정이 없으신가요? 회원가입</a></p>
+      </form>
+    </div>
+  
+    <!-- ✅ 여기부터 추가하세요 -->
+    <div id="customAlert" style="display:none;">
+      <div class="alertBox">
+        <p id="alertMessage"></p>
+        <button onclick="closeAlert()">확인</button>
+      </div>
+    </div>
+    <!-- ✅ 여기까지 -->
+  
+    <script src="script.js"></script>
+  </body>
+  
+</html>

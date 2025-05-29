@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>피라미드 만들기</title>
+  <style>
+    /* 결과 영역을 가운데 정렬 */
+    #pyramidArea {
+      text-align: center;
+      margin-top: 20px;
+      font-family: monospace; /* 글자 폭 고정 (선택사항) */
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align:center;">피라미드 만들기</h1>
+
+  <!-- 사용자 입력창 -->
+  <div style="text-align:center;">
+    <input type="number" id="heightInput" placeholder="피라미드 높이를 입력하세요">
+    <button onclick="buildPyramid()">만들기</button>
+  </div>
+
+  <!-- 결과 출력창 -->
+  <div id="pyramidArea"></div>
+
+  <script>
+    function buildPyramid() {
+      const height = document.getElementById('heightInput').value;
+      const pyramidArea = document.getElementById('pyramidArea');
+
+      let pyramidHTML = "";
+
+      for (let i = 1; i <= height; i++) {
+        let row = "";
+        for (let j = 1; j <= i; j++) {
+          row += "*";
+        }
+        pyramidHTML += row + "<br>";
+      }
+
+      pyramidArea.innerHTML = pyramidHTML;
+    }
+  </script>
+
+</body>
+</html>

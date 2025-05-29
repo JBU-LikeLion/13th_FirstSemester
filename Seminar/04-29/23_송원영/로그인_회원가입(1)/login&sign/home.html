@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>홈</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+      <div class="card">
+        <h2>환영합니다 👋</h2>
+        <p id="welcomeMessage"></p>
+        <button onclick="confirmLogout()">🚪 로그아웃</button>
+        <button onclick="confirmDelete()">🗑️ 회원 탈퇴</button>
+        <button onclick="toggleDarkMode()">🌙 다크모드 전환</button>
+
+      </div>
+    </div>
+  
+    <!-- confirm 모달 재활용 -->
+    <div id="confirmModal" style="display: none;">
+      <div class="alertBox">
+        <p id="confirmText">정말 로그아웃하시겠습니까?</p>
+        <div class="buttonGroup">
+          <button id="confirmYes">확인</button>
+          <button id="confirmNo">취소</button>
+        </div>
+      </div>
+    </div>
+  
+    <script>
+      const user = sessionStorage.getItem("loggedInUser");
+      const welcome = document.getElementById("welcomeMessage");
+  
+      if (!user) {
+        alert("로그인이 필요합니다.");
+        window.location.href = "login.html";
+      } else {
+        welcome.innerText = `${user}님, 반가워요!`;
+      }
+  
+      // 로그아웃
+      function confirmLogout() {
+        document.getElementById("confirmText").innerText = "정말 로그아웃하시겠습니까?";
+        showConfirm(() => {
+          sessionStorage.removeItem("loggedInUser");
+          window.location.href = "login.html";
+        });
+      }
+  
+      // 회원 탈퇴
+      function confirmDelete() {
+        document.getElementById("confirmText").innerText = "정말 회원 탈퇴하시겠습니까?";
+        showConfirm(() => {
+          localStorage.removeItem(user); // 회원정보 삭제
+          sessionStorage.removeItem("loggedInUser"); // 세션도 삭제
+          window.location.href = "login.html";
+        });
+      }
+  
+      // 다크모드 토글
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+      }
+  
+      // 페이지 로드 시 다크모드 유지
+      window.onload = function () {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.body.classList.add("dark");
+        }
+      }
+  
+      // 공통 확인창 처리
+      function showConfirm(callback) {
+        document.getElementById("confirmModal").style.display = "flex";
+        document.getElementById("confirmYes").onclick = () => {
+          document.getElementById("confirmModal").style.display = "none";
+          callback();
+        };
+        document.getElementById("confirmNo").onclick = () => {
+          document.getElementById("confirmModal").style.display = "none";
+        };
+      }
+    </script>
+  </body>
+  
+</html>

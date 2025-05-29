@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>클래스 기반 피라미드</title>
+  <style>
+    #pyramidArea {
+      text-align: center;
+      margin-top: 20px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="text-align:center;">클래스 기반 피라미드 만들기</h1>
+
+  <div style="text-align:center;">
+    <input type="number" id="heightInput" placeholder="피라미드 높이를 입력하세요">
+    <button onclick="makePyramid()">만들기</button>
+  </div>
+
+  <div id="pyramidArea"></div>
+
+  <script>
+    // 1. 클래스 정의
+    class Pyramid {
+      constructor(height) {
+        this.height = height;  // 생성자: 피라미드 높이를 저장
+      }
+
+      // 2. 피라미드 만들기 메서드
+      build() {
+        let result = "";
+
+        for (let i = 1; i <= this.height; i++) {
+          let row = "";
+          for (let j = 1; j <= i; j++) {
+            row += "*";
+          }
+          result += row + "<br>";
+        }
+
+        return result;  // 완성된 피라미드를 문자열로 반환
+      }
+    }
+
+    // 3. 버튼 클릭 시 실행할 함수
+    function makePyramid() {
+      const height = document.getElementById('heightInput').value;
+      const pyramidArea = document.getElementById('pyramidArea');
+
+      // 4. 객체 생성
+      const pyramid = new Pyramid(height);
+
+      // 5. 피라미드 출력
+      pyramidArea.innerHTML = pyramid.build();
+    }
+  </script>
+
+</body>
+</html>
+<!-- 사용자가 숫자 입력하고
+
+버튼 누르면 makePyramid() 함수 실행
+
+Pyramid 클래스를 이용해서 객체(pyramid)를 만들고
+
+그 객체가 가진 build() 메서드로 별 찍기
+
+결과를 화면에 출력! -->
