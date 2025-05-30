@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>멋사 과제 - 회원가입</title>
+  </head>
+  <body>
+    <h2>회원가입</h2>
+    <input type="text" id="id" placeholder="아이디 입력" /><br /><br />
+    <input
+      type="password"
+      id="password"
+      placeholder="비밀번호 입력"
+    /><br /><br />
+    <button onclick="signup()">회원가입</button>
+
+    <script>
+      function signup() {
+        const id = document.getElementById("id").value;
+        const password = document.getElementById("password").value;
+
+        if (!id || !password) {
+          alert("아이디와 비밀번호를 모두 입력하세요!");
+          return;
+        }
+
+        const user = {
+          id: id,
+          password: password,
+        };
+
+        localStorage.setItem("user", JSON.stringify(user));
+        alert("회원가입 성공!");
+        window.location.href = "login.html";
+      }
+    </script>
+  </body>
+</html>
