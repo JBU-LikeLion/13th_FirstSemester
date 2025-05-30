@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>멋사 과제</title>
+    <style>
+      input {
+        color: black;
+        font-size: 20px;
+        border-radius: 10px;
+        border: 1px solid;
+      }
+      button {
+        color: black;
+        background-color: skyblue;
+        border: 1px solid;
+        border-radius: 30px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="heightinput" placeholder="숫자를 입력하세요" />
+    <button onclick="Pyramid()">피라미드 만들기</button>
+    <hr />
+    <div id="pyramid"></div>
+    <script>
+      class structure {
+        constructor(height) {
+          this.height = height;
+        }
+        draw() {
+          let result = "";
+          for (let i = 0; i < this.height; i++) {
+            for (let j = 0; j < this.height - i - 1; j++) {
+              result += "&nbsp;";
+            }
+            for (let k = 0; k < 2 * i + 1; k++) {
+              result += "*";
+            }
+            result += "<br>";
+          }
+          return result;
+        }
+      }
+
+      function Pyramid() {
+        const heightvalue = document.getElementById("heightinput");
+        const heightnumber = parseInt(heightvalue.value);
+        const pyramid = new structure(heightnumber);
+        document.getElementById("pyramid").innerHTML = pyramid.draw();
+      }
+    </script>
+  </body>
+</html>
