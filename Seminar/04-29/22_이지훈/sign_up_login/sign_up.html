@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sign_up_login.css">
+    <title>회원가입 페이지</title>
+</head>
+<body>
+    <!-- 제목,제목아래에 있는 텍스트 스타일 정해주기 -->
+    <h1>회원가입</h1>
+    <div style="display:flex; flex-direction:column; align-items:center; margin-bottom: 25px;">회원가입을 위해 입력해주세요!😁</div>
+   
+    <!-- 아이디입력,비번입력,회원가입-탈퇴 버튼을 포함하는 클래스 생성  -->
+    <div class="input-child">
+        <input type="text" id="username" name="username" placeholder="아이디를 입력해주세요" required>
+        <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" required>
+        <button type="button" class="signup-button" onclick="saveUserData()">회원가입😊</button>
+        <button type="button" class="resignup-button" onclick="DeleteUserData()">회원탈퇴😭</button>
+    </div>
+     
+    <!-- 텍스트 및 로그인.html로 이동가능한 링크를 포함한 클래스 생성 -->
+    <div class="login-link">
+        <label for="login">이미 회원이신가요?</label>
+        <a href="login.html">로그인</a>
+        
+    </div>    
+    <script src = "sign_up_login.js"></script>
+</body>
+</html>
+
+
+
+
+
+
