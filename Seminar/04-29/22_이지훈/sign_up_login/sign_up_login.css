@@ -1,0 +1,73 @@
+/* 홈페이지 전체 폰트 및 정렬 */
+body{ 
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    background-color: white;
+}
+/* 아이디-비번 입력창, 회원가입-탈퇴, 로그인 버튼 */
+.input-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 30px;
+    gap: 20px;
+    width: 290px;
+    height: 100px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.089);
+    position: relative;
+}
+/* 로그인 유지 버튼 */
+.remember-me{
+    margin-right: 200px;
+    font-size: 12px;
+}
+
+/* 회원가입 버튼 */
+.signup-button{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+/* 회원탈퇴 버튼 */
+.resignup-button{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+/* 로그인 버튼 */
+.login-button{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+/* 회원가입-로그인 창으로 이동하는 링크 */
+.login-link{
+    margin-top: 30px;
+
+}
+
+/* 피라미드 만들기 버튼*/
+.pyramid-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 365px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+    font-size: 30px;
+    background-color: white;
+    border: 0.5px solid #000;
+    border-radius: 5px; 
+    transition: all 0.3s ease;
+}
+.pyramid-button:hover{
+    color: blue;
+}
