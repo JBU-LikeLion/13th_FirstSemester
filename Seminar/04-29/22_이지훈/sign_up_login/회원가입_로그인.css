@@ -52,22 +52,3 @@ body{
     margin-top: 30px;
 
 }
-
-/* 피라미드 만들기 버튼*/
-.pyramid-button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 365px;
-    height: 100px;
-    position: relative;
-    margin: 0 auto;
-    font-size: 30px;
-    background-color: white;
-    border: 0.5px solid #000;
-    border-radius: 5px; 
-    transition: all 0.3s ease;
-}
-.pyramid-button:hover{
-    color: blue;
-}
