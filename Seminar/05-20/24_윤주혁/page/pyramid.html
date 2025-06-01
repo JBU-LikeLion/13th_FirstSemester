@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="box">
+    <form method="get" action="/pyramid_f" id="serve">
+        <p>1번째</p>
+        <input type="text" placeholder="모양" name="mo">
+        <input type="text" placeholder="층" name="level">
+        <p>2번째</p>
+        <input type="text" placeholder="모양" name="mo_2">
+            <input type="text" placeholder="층" name="level_2">
+        <input type="submit" value="생성">
+    </form>
+    <button onclick="back()">뒤로 가기</button>
+    <script>
+        function back(){
+            location.href ='/main'
+        }
+    </script>
+</body>
+</html>

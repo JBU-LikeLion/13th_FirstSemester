@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <p><button onclick="newPyramid()">새로 만들기</button></p>
+    <script>
+        function newPyramid(){
+            location.href='/pyramid'
+        }
+        const url = new URL(window.location.href);
+            const urlParams = url.searchParams;
+            let mo = urlParams.get('mo');
+            let level = urlParams.get('level');
+
+            //클래스
+            class elem{
+                constructor(k,level){
+                    this.mo = k;
+                    this.level = level;
+                }
+                getMo(){
+                    return this.mo
+                }
+                getLevel(){
+                    return this.level;
+                }
+            }
+            
+            //첫 번째 객체 생성
+            const p1 = new elem(mo,level);
+
+            //첫 번째
+        for(let i = 0; i < p1.getLevel(); i++)  {
+            for(let j = p1.getLevel()-1; j > i; j--)  {
+                document.write('&nbsp');
+            }
+            for(let j = 0; j <= i; j++) {
+                document.write(p1.getMo());
+            }
+            document.write('<br>');
+            }
+            document.writeln('<br>');
+
+
+            //두 번째 객체 생성
+            let mo_2 = urlParams.get('mo_2');
+            let level_2 = urlParams.get('level_2');
+
+            const p2 = new elem(mo_2,level_2)
+
+            //두 번째 출력
+            for(let i = 0; i < p2.getLevel(); i++)  {
+            for(let j = p2.getLevel()-1; j > i; j--)  {
+                document.write('&nbsp');
+            }
+            for(let j = 0; j <= i; j++) {
+                document.write(p2.getMo());
+            }
+            document.write('<br>');
+            }
+            
+    </script>
+</body>
+</html>
