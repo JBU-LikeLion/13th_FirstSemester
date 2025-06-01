@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="login">
+        <input type="text" placeholder="아이디" id="id">
+        <input type="password" placeholder="비밀번호" id="pw">
+        <button onclick="login()">로그인</button>
+        <button onclick="session_sign_up()">회원가입</button>
+
+    <button onclick="del()">스토리지 삭제</button>
+    <br><a href="../index.html">메인화면</a>
+    </div>
+    <script>
+        function session_sign_up(){
+            location.href='session_sign_up.html';
+        }
+        function login(){
+            //input의 아이디&패스워드 받아오기
+            const id = document.getElementById('id').value
+            const pw = document.getElementById('pw').value;
+            
+            //세션 스토리지에 id와 pw 있으면 가져오기
+            const l_id = sessionStorage.getItem(id)
+            const l_pw = sessionStorage.getItem(id)
+            
+
+            if(l_id == null){
+                //l_id가 있는지 확인
+                alert('존재하지 않는 아이디입니다')
+            }else if(pw == l_pw){
+                
+                alert('로그인 성공!')
+                location.href = 'session_finish.html'
+            }else{
+                alert('비밀번호를 다시 확인하세요')
+            }
+
+        }
+        function del(){
+            sessionStorage.clear()
+        }
+    </script>
+</body>
+</html>

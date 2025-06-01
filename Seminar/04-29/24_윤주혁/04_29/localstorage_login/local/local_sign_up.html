@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="sign_up">
+        <p>사용할 아이디와 비밀번호</p>
+        <input type="text" id="s_id" placeholder="아이디">
+        <input type="password" id="s_pw" placeholder="비밀번호">
+        <button onclick="sign_up()">회원가입</button>
+    <p><a href="../index.html">메인화면</a></p>
+    </div>
+    <script>
+        function sign_up(){
+            //input에 적은 값 받아오기기
+            const s_id = document.getElementById('s_id').value
+            const s_pw = document.getElementById('s_pw').value
+            
+            //s_id가 스토리지에 있는지 확인 - 같은 key면 추가x value값을 변환하므로 같은 key값을 안 나오게
+            const key_id = localStorage.getItem(s_id)
+            if(key_id===null){
+                window.localStorage.setItem(s_id,s_pw)
+            alert('회원가입 완료!')
+            location.href = 'local.html'
+            }else{
+                alert('존재하는 아이디입니다.')
+            }
+        }
+    </script>
+</body>
+</html>

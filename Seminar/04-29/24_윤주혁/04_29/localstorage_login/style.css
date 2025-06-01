@@ -1,0 +1,62 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: rgb(75, 75, 75);
+}
+.main{
+    text-align: center;
+    background-color: antiquewhite;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 10px;
+    line-height: 50px;
+}
+.login{
+    text-align: center;
+    background-color: antiquewhite;
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 10px;
+    line-height: 50px;
+}
+.fin{
+    text-align: center;
+    background-color: antiquewhite;
+    width: 200px;
+    height: 130px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 10px;
+    line-height: 50px;
+    padding: 20px 0;
+}
+.sign_up{
+    text-align: center;
+    background-color: antiquewhite;
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 10px;
+    line-height: 50px;
+    padding: 20px 0;
+
+}
