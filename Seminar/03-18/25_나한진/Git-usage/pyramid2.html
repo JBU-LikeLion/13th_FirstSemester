@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyramid with Variables and Loops</title>
+    <script> // 변수와 제어문을 사용한 피라미드
+        function generatePyramid() {
+            const rows = parseInt(document.getElementById("pyramidSize").value, 10);
+            const pyramidElement = document.getElementById("pyramid");
+            
+            if (isNaN(rows) || rows <= 0) {
+                pyramidElement.innerHTML = "Please enter a valid number greater than 0.";
+                return;
+            }
+
+            let pyramid = "";
+            for (let i = 1; i <= rows; i++) {
+                // 공백 추가
+                for (let k = 0; k < rows - i; k++) {
+                    pyramid += "&nbsp;";
+                }
+                // 별 추가
+                for (let j = 0; j < 2 * i - 1; j++) {
+                    pyramid += "*";
+                }
+                pyramid += "<br>";
+            }
+
+            pyramidElement.innerHTML = pyramid;
+        }
+    </script>
+</head>
+<body>
+    <h1>Pyramid Generator</h1>
+    <label for="pyramidSize">Enter the number of rows:</label>
+    <input type="number" id="pyramidSize" min="1">
+    <button onclick="generatePyramid()">Generate Pyramid</button>
+    <div id="pyramid"></div>
+</body>
+</html>
