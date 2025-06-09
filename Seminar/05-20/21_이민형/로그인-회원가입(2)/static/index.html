@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>기본 피라미드</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container my-4">
+      <h1 id="title" class="mb-3">Welcome to Pyramid Page</h1>
+      <div id="nav" class="mb-4">
+        <a
+          href="/login.html"
+          id="login-link"
+          class="btn btn-outline-primary btn-sm me-2"
+          >로그인</a
+        >
+        <a
+          href="/signup.html"
+          id="signup-link"
+          class="btn btn-outline-success btn-sm me-2"
+          >회원가입</a
+        >
+        <a
+          href="/logout"
+          id="logout-link"
+          class="btn btn-outline-danger btn-sm"
+          style="display: none"
+          >로그아웃</a
+        >
+      </div>
+    </div>
+
+    <div id="pyramid-area" class="container" style="display: none">
+      <div class="mb-2">
+        <input
+          type="number"
+          id="level"
+          class="form-control"
+          placeholder="레벨 입력"
+        />
+      </div>
+      <div class="mb-2">
+        <input
+          type="text"
+          id="symbol"
+          class="form-control"
+          placeholder="원하는 심볼"
+        />
+      </div>
+      <div class="mb-3">
+        <input
+          type="color"
+          id="symbolColor"
+          class="form-control form-control-color"
+          placeholder="원하는 색상"
+        />
+      </div>
+      <div class="mb-4">
+        <button onclick="pyramid()" class="btn btn-primary me-2">
+          피라미드 실행
+        </button>
+        <button onclick="resetPyramid()" class="btn btn-secondary">리셋</button>
+      </div>
+      <div id="content" class="mt-4"></div>
+    </div>
+
+    <script>
+      async function checkLogin() {
+        const res = await fetch("/check");
+        const data = await res.json();
+
+        const loginLink = document.getElementById("login-link");
+        const logoutLink = document.getElementById("logout-link");
+        const signupLink = document.getElementById("signup-link");
+
+        if (data.loggedIn) {
+          document.getElementById("pyramid-area").style.display = "block";
+          document.getElementById("title").innerText =
+            data.userId + "님, 피라미드를 실행해보세요!";
+          loginLink.style.display = "none";
+          signupLink.style.display = "none"; //로그인시 로그인, 회원가입 링크 숨김
+          logoutLink.style.display = "inline"; //로그아웃 링크만 보여주기
+        } else {
+          document.getElementById("title").innerText =
+            "로그인 후 피라미드를 실행할 수 있어요.";
+          loginLink.style.display = "inline";
+          logoutLink.style.display = "none";
+        }
+      }
+
+      function pyramid() {
+        const symbolColor = document.getElementById("symbolColor").value;
+        const symbol = document.getElementById("symbol").value;
+        const symColor = `<span style="color:${symbolColor}">${symbol}</span>`;
+        const num = parseInt(document.getElementById("level").value);
+        let content = "";
+
+        for (let i = 0; i < num; i++) {
+          let line = "";
+          for (let j = 0; j < num - i - 1; j++) {
+            line += "&nbsp;";
+          }
+          for (let star = 0; star < 2 * i + 1; star++) {
+            line += symColor;
+          }
+          content += line + "<br>";
+        }
+
+        document.getElementById("content").innerHTML = content;
+        document.getElementById("content").style.fontFamily = "monospace";
+      }
+
+      function resetPyramid() {
+        document.getElementById("content").innerHTML = "";
+      }
+
+      window.onload = checkLogin;
+    </script>
+  </body>
+</html>

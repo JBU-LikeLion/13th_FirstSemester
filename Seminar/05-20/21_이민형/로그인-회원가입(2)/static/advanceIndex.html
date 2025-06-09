@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>동적 피라미드</title>
+  </head>
+  <body>
+    <div>
+      <input type="number" id="level" placeholder="레벨 입력" />
+      <input type="text" id="symbol" placeholder="원하는 심볼" />
+      <input
+        type="color"
+        id="symbolColor"
+        placeholder="심볼 색상을 선택하세요"
+      />
+      <button onclick=" drawPyramid()">피라미드 실행</button>
+      <button onclick="resetPyramid()">피라미드 리셋</button>
+      <div id="content"></div>
+    </div>
+  </body>
+
+  <script>
+    class Pyramid {
+      constructor() {
+        this.symbol = document.getElementById("symbol").value;
+        this.symbolColor = document.getElementById("symbolColor").value;
+        this.symColor = `<span style="color:${this.symbolColor}">${this.symbol}</span>`;
+        this.num = parseInt(document.getElementById("level").value);
+      }
+      draw() {
+        let content = "";
+
+        for (let i = 0; i < this.num; i++) {
+          let line = "";
+          for (let j = 0; j < this.num - i - 1; j++) {
+            line += "&nbsp;";
+          }
+          for (let star = 0; star < 2 * i + 1; star++) {
+            line += this.symColor;
+          }
+
+          content += line + "<br>";
+        }
+        document.getElementById("content").innerHTML = content;
+        document.getElementById("content").style.fontFamily = "monospace";
+      }
+    }
+
+    function drawPyramid() {
+      const py = new Pyramid();
+      py.draw();
+    }
+    function resetPyramid() {
+      document.getElementById("content").innerHTML = "";
+    }
+  </script>
+</html>
