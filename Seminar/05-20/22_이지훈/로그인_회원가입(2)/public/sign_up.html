@@ -1,1 +1,26 @@
-
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="/sign_up_login.css">
+</head>
+<body>
+    <h1>회원가입</h1>
+    <p>회원가입을 위해 입력해주세요!😁</p>
+    <div id="error-message" style="color: red;"></div>
+    <div class="input-child">
+        <form id="signup-form">
+            <input type="text" id="username" name="username" placeholder="아이디">
+            <input type="password" id="password" name="password" placeholder="비밀번호">
+            <button type="submit" class="login-button">회원가입😊</button>
+            <button type="button" class="resignup-button" onclick="DeleteUserData()">회원탈퇴😭</button>
+        </form>
+    </div>
+    <div class="login-link">
+        <p>이미 회원이신가요? <a href="/login.html">로그인</a></p>
+    </div>
+    <script src="/sign_up_login.js"></script>
+</body>
+</html>
