@@ -1,1 +1,28 @@
-
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="/sign_up_login.css">
+</head>
+<body>
+    <h1>로그인</h1>
+    <p>반갑습니다 <span id="username-display"></span>님!!😁</p>
+    <div id="error-message" style="color: red;"></div>
+    <div class="input-child">
+        <form id="login-form">
+            <input type="text" id="username" name="username" placeholder="아이디">
+            <input type="password" id="password" name="password" placeholder="비밀번호">
+            <label class="remember-me">
+                <input type="checkbox" id="remember-me" name="rememberMe"> 로그인 유지
+            </label>
+            <button type="submit" class="login-button">로그인</button>
+        </form>
+    </div>
+    <div class="login-link">
+        <p>아직 회원이 아니신가요? <a href="/signup.html">회원가입</a></p>
+    </div>
+    <script src="/sign_up_login.js"></script>
+</body>
+</html>
