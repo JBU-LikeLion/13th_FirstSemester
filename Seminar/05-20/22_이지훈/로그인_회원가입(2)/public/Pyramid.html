@@ -1,1 +1,96 @@
-
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>피라미드 만들기(if-for문)</title>
+    <style>
+    	/* body(전체페이지) 선언  */
+        body {
+        	/*폰트 설정*/
+            font-family: Arial;
+            /* 좌우정렬 및 높이설정 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+         	margin-top: 150px;
+            background-color: white;
+        }
+       	    /* 입력창과 버튼을 포함하는 클래스 생성  */ 
+            .input-child {
+          	/* 입력창과 버튼 가로정렬, 여백10px, 아래쪽 여백20px  */
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        /* 피라미드 출력 스타일  */
+        #pyramid {
+            /* 글씨체를 고정폭으로 고정해서 피라미드 모양 정렬 */
+            font-family: monospace;
+            /* 글씨 크기 */
+            font-size: 18px;
+            /* 공백과 줄바꿈을 보여줌(피라미드 모양 정렬) */
+            white-space: pre;
+            /* 배경색  */
+            background-color: white;
+            /* 여백 10px  */
+            padding: 10px;
+            /* 회색 테두리 */
+            border: 1px solid #ddd;
+            /* 모서리 라운드 처리 */
+            border-radius: 5px;
+            /* 위쪽으로 10px 여백 */
+            margin-top: 10px;
+        }
+        /* 오류 메시지 출력(숫자가 1~10사이가 아닐때) */
+        #message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>피라미드 만들기(for-if문)</h1>
+    <div class="input-child">
+    	<label for="height">피라미드 높이(1-10)</label>
+   	 	<input type="number" id="height" min="1" max="10">
+    	<button onclick="buildPyramid()">피라미드 생성</button>
+    </div>
+    <div id="pyramid"></div>
+    <div id="message"></div>
+    <div id="pyramid-output"></div>
+    <script>
+    	/* 피라미드 생성 버튼을 누르면 함수 실행  */
+        function buildPyramid() {
+    		/* height,pyramid,message를 찾아서 변수에 저장  */
+            const heightInput = document.getElementById('height');
+            const pyramidDiv = document.getElementById('pyramid');
+            const messageDiv = document.getElementById('message');
+			/* 입력된 값(예:5)를 숫자로 변환  */
+            const height = parseInt(heightInput.value);
+			/* 1~10까지의 숫자가 아닌 빈칸이나 벗어나는 숫자 입력시 오류메시지 출력 */
+            if (isNaN(height) || height < 1 || height > 10) {
+            	/* 메시지 공간에 오류메시지 출력 후 피라미드 생성 중지 */
+                messageDiv.textContent = '1에서 10 사이의 숫자를 입력하세요!';
+                pyramidDiv.textContent = '';
+                return;
+            }
+			/* 피라미드 만드는 공간(빈칸으로 시작) */
+            let pyramid = '';
+			/* 입력한 숫자만큼 반복 */
+            for (let i = 1; i <= height; i++) {
+            	/* 왼쪽에 공백 생성  */
+                let spaces = ' '.repeat(height - i);
+            	/* 별 생성, 입력한값 *2-1로 홀수생성 */
+                let stars = '✦'.repeat(2 * i - 1);
+            	/* 별과 공백을 더하고 줄바꿈을 추가해 피라미드 생성 */
+                pyramid += spaces + stars + '\n';
+            }
+			/* 완성된 피라미드 모형을 피라미드 공간에 출력 */
+            pyramidDiv.textContent = pyramid;
+			/* 오류메시지가 생성되면 공백 */
+            messageDiv.textContent = '';
+        }
+    </script>
+</body>
+</html>
