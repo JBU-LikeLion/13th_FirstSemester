@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별 삼각형</title>
+    <style>
+        pre { font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div id="triangle"></div>
+
+    <script>
+        function drawTriangle(num) {
+            let triangle = "";
+            
+            for (let i = 0; i < num; i++) {
+                let space = " ".repeat(num - i); 
+                let stars = "*".repeat(i * 2 + 1); 
+                triangle += space + stars + "<br>"; 
+            }
+            
+
+            document.getElementById("triangle").innerHTML = `<pre>${triangle}</pre>`;
+        }
+
+        drawTriangle(5);
+    </script>
+</body>
+</html>

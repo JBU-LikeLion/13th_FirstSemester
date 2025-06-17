@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="home">
+        <h1>환영합니다!</h1>
+        <p>로그인 또는 회원가입을 진행하세요.</p>
+        <button onclick="showPage('login')">로그인</button>
+        <button onclick="showPage('signup')">회원가입</button>
+    </div>
+
+    <div id="login" style="display: none;">
+        <h2>로그인</h2>
+        <input type="email" id="login-email" placeholder="이메일 입력">
+        <input type="password" id="login-password" placeholder="비밀번호 입력">
+        <button type="button" onclick="login()">로그인</button>
+        <div id="message"></div> 
+        <button onclick="showPage('home')">홈으로 돌아가기</button>
+    </div>
+
+    <div id="signup" style="display: none;">
+        <h2>회원가입</h2>
+        <input type="email" id="signup-email" placeholder="이메일 입력">
+        <input type="password" id="signup-password" placeholder="비밀번호 입력">
+        <button onclick="register()">가입하기</button>
+        <div id="message"></div> 
+        <button onclick="showPage('home')">홈으로 돌아가기</button>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
+
+
