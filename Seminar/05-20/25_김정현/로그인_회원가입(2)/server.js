@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mysql = require('mysql2'); 
 const express = require('express'); 
 const bcrypt = require('bcrypt'); // 암호화
@@ -8,7 +9,7 @@ const port = 3000;
 
 // 세션 설정: 로그인 상태 유지 (브라우저 종료 또는 만료 시 해제)
 app.use(session({
-  secret: 'my-secret-key', // 세션 암호화 키
+  secret: process.env.SESSION_SECRET, // 세션 암호화 키
   resave: false, // 매 요청마다 세션 저장 X
   saveUninitialized: false, // 초기화되지 않은 세션 저장 X
   cookie: { maxAge: 1000 * 60 * 30 } // 쿠키 유효시간: 30분
